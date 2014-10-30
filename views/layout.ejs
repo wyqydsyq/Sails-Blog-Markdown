@@ -1,0 +1,62 @@
+<%
+	//title = 'pyrokinetiq';
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%- title %> &rarr; DreamForge</title>
+		<!-- Viewport mobile tag for sensible mobile support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Raleway:300,700,400,500' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/styles/importer.css">
+	</head>
+	<body class="<%= req.param('controller') %>">
+		<div id="wrapper">
+			<% if(typeof errors === 'object'){ %>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="alert alert-error">
+							<h3>Uh oh! <i class="icon-frown"></i></h3>
+							<ul>
+								<% for(i=0;i<=errors.length;i++){ if(typeof errors[i] === 'undefined') continue; %>
+								<li><%= errors[i] %></li> 
+								<% } %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+
+			<div id="content" class="container">
+				<div class="row">
+					<div class="left-bar col-sm-4">
+						<a href="/"><img src="/images/logo.svg" width="250" id="logo" /></a>
+						<ul class="nav">
+							<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+							<li><a href="/news"><i class="fa fa-comment"></i> News</a></li>
+							<li><a href="/projects"><i class="fa fa-code"></i> Projects</a></li>
+						</ul>
+					</div>
+
+					<div class="body col-xs-8">
+						<%- body %>
+					</div>
+				</div>
+			</div>
+			
+			<div id="footer" class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						&copy; 2014 Damon Poole.
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/js/dependencies/sails.io.js"></script>
+		<script src="/js/dependencies/require.js"></script>
+		<script src="/js/app.js"></script>
+	</body>
+</html>

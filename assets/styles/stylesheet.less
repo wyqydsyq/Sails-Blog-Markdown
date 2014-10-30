@@ -1,0 +1,30 @@
+.news-feed {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	> li a {
+		padding: 5px 10px;
+		display: block;
+		border-radius: 5px;
+		font-size: 1.3em;
+
+		&:hover {
+			text-decoration: none;
+			background: rgba(0,0,0,.25);
+			box-shadow: 0 -3px 0 rgba(0,0,0,.3);
+			color: #fff;
+		}
+
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f138";
+			margin-right: 10px;
+		}
+	}
+}
+
+
+.input-group-addon {
+	color: #eee;
+}
