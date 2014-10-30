@@ -19,7 +19,7 @@ var fs = require('fs');
 var article_path = 'views/blog/article/';
 
 module.exports = {
-	
+
 	index: function(req, res){
 		var article_files = fs.readdirSync(article_path);
 		var articles = _.map(article_files, function(article, i, articles){
@@ -31,7 +31,7 @@ module.exports = {
 				date: new Date(astring.match(/^(.*)\n=*\n(.*)\n/)[2])
 			};
 		});
-		
+
 		articles.sort(function(a, b){
 			if(a.date.getTime() / 1000 > b.date.getTime() / 1000)
 				return -1;
@@ -60,7 +60,7 @@ module.exports = {
 			slug: article_file.replace(/\.md$/, ''),
 			content: markdown.toHTML(article_content),
 			name: article_content.match(/^(.*)\n=*\n/)[1],
-			date: fs.statSync(article_file).ctime
+			date: new Date(article_content.match(/^(.*)\n=*\n(.*)\n/)[2])
   		}
 
 		res.view('blog/article', {'article': article, 'title': article.name});
@@ -73,5 +73,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };

@@ -31,26 +31,18 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-	
+
 	// main pages
 	'/': {
 		controller: 'home',
 		action: 'index'
 	},
-	'/news': {
+	'/blog': {
 		controller: 'blog'
 	},
-	'/news/article/:article': {
+	'/blog/article/:article': {
 		controller: 'blog',
 		action: 'article'
-	},
-	'/projects': {
-		view: 'projects'
-	},
-	
-	//projects
-	'/magician': {
-		controller: 'magician'	
 	}
 
 	/***************************************************************************
