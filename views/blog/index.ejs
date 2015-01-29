@@ -1,6 +1,6 @@
 <h1>News</h1>
 <ul class="news-feed">
 	<% _.each(articles, function(article){ %>
-		<li><a href="/news/article/<%- article.slug %>"><%- article.name %> &mdash; <small><%- article.date.toLocaleDateString("en-AU") %></small></a></li>
+		<li><a href="/blog/article/<%- article.slug %>"><%- article.name %> &mdash; <small><%- article.date.toLocaleDateString("en-AU") %></small></a></li>
 	<% }) %>
 </ul>
